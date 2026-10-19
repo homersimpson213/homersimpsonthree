@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- This loads the Ruffle flash program perfectly on GitHub -->
-  <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+  <script src="https://unpkg.com"></script>
+  <script>
+    // ─── THIS FORCES THE ANIMATION TO STRETCH TO YOUR NEW SIZE ───
+    window.RufflePlayer = window.RufflePlayer || {};
+    window.RufflePlayer.config = {
+        scale: "showAll",
+        forceScale: true
+    };
+  </script>
 </head>
 <body style="margin:0; padding:0; overflow:hidden;">
 
-  <!-- This runs your flash banner inside GitHub where it isn't blocked -->
-  <embed src="simps_header.swf" width="700" height="680" type="application/x-shockwave-flash">
+  <!-- Change width and height here to whatever big size you want! -->
+  <embed src="simps_header.swf" width="760" height="220" type="application/x-shockwave-flash">
 
 </body>
 </html>
