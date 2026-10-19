@@ -1,20 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <!-- Loads the Ruffle program directly on GitHub -->
   <script src="https://unpkg.com"></script>
+</head>
+<body style="margin:0; padding:0; overflow:hidden; background:transparent;">
+
+  <!-- This container will hold your Flash player smoothly -->
+  <div id="flash-container" style="width: 760px; height: 220px;"></div>
+
   <script>
-    // ─── THIS FORCES THE ANIMATION TO STRETCH TO YOUR NEW SIZE ───
     window.RufflePlayer = window.RufflePlayer || {};
     window.RufflePlayer.config = {
         scale: "showAll",
         forceScale: true
     };
-  </script>
-</head>
-<body style="margin:0; padding:0; overflow:hidden;">
 
-  <!-- Change width and height here to whatever big size you want! -->
-  <embed src="homerhomertheheader.swf" width="760" height="220" type="application/x-shockwave-flash">
+    window.addEventListener("load", (event) => {
+        const ruffle = window.RufflePlayer.newest();
+        const player = ruffle.createPlayer();
+        const container = document.getElementById("flash-container");
+        container.appendChild(player);
+        
+        // This injects the file directly via JS so your browser won't throw an error!
+        player.load("homerhomertheheader.swf");
+        
+        player.style.width = "100%";
+        player.style.height = "100%";
+    });
+  </script>
 
 </body>
 </html>
